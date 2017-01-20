@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Bitmap backgroundImage = BitmapFactory.decodeResource(getResources(),R.drawable.stp2);
-        Bitmap profile = BitmapFactory.decodeResource(getResources(),R.drawable.avatar);
+        Bitmap profile = BitmapFactory.decodeResource(getResources(),R.drawable.pf_avtar);
         String quote = "Hello i am gonna go all the way lets see who can stop me";
         QuotesView quotesView = new QuotesView(this,backgroundImage,profile,quote, Color.parseColor("#FFEB3B"));
         addContentView(quotesView,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
