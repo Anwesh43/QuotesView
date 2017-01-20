@@ -56,7 +56,9 @@ public class QuotesView extends View{
         int w = canvas.getWidth(),h = canvas.getHeight();
         paint.setAlpha(100);
         if(backgroundImage!=null) {
-            canvas.drawBitmap(backgroundImage,new Rect(0,0,backgroundImage.getWidth(),backgroundImage.getHeight()),new RectF(0,0,w,h),paint);
+            int canvasWidth = canvas.getWidth(),canvasHeight = canvas.getHeight();
+            Bitmap scaledBackgroundBitmap = Bitmap.createScaledBitmap(backgroundImage,canvasWidth,canvasHeight,true);
+            canvas.drawBitmap(scaledBackgroundBitmap,0,0,paint);
         }
         int r = Color.red(color),g = Color.green(color),b = Color.blue(color);
         paint.setColor(Color.argb(150,r,g,b));
