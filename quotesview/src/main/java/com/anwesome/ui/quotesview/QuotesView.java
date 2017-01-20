@@ -54,16 +54,17 @@ public class QuotesView extends View{
     public void onDraw(Canvas canvas) {
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         int w = canvas.getWidth(),h = canvas.getHeight();
+        paint.setAlpha(100);
         if(backgroundImage!=null) {
             canvas.drawBitmap(backgroundImage,new Rect(0,0,backgroundImage.getWidth(),backgroundImage.getHeight()),new RectF(0,0,w,h),paint);
         }
         int r = Color.red(color),g = Color.green(color),b = Color.blue(color);
-        paint.setColor(Color.argb(170,r,g,b));
+        paint.setColor(Color.argb(150,r,g,b));
         canvas.drawRect(0,0,w,h,paint);
         String tokens[] = text.split(" ");
         String msg = "\"";
         paint.setTextSize(w/9);
-        paint.setColor(Color.parseColor("#E0E0E0"));
+        paint.setColor(Color.parseColor("#B0BEC5"));
         int x = w/6,y = h/4;
         for(String token:tokens) {
             if(paint.measureText(msg+token) > 2*w/3) {
@@ -75,9 +76,12 @@ public class QuotesView extends View{
                 msg = msg+token+" ";
             }
         }
-        msg = msg+"\"";
+        msg = msg.trim()+"\"";
         canvas.drawText(msg,x,y,paint);
         y+=w/8;
+        if(y<h-w/4) {
+            y+=w/8;
+        }
         if(profile!=null) {
             Path path = new Path();
             path.addCircle(w/2,y,profile.getWidth()/2, Path.Direction.CCW);
